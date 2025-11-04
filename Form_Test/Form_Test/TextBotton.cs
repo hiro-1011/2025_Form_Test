@@ -8,13 +8,15 @@ using System.Windows.Forms;
 
 namespace Form_Test
 {
-    internal class TextButton : Button
+    public class TestButton : Button
     {
         private Color _onColor = Color.Aquamarine;
 
         private Color _offColor = Color.Blue;
 
         private bool _enable;
+
+        private Form1 _form1;
 
         public void SetEnable(bool on)
         {
@@ -30,8 +32,12 @@ namespace Form_Test
         }
 
 
-        public TextButton(Point position, Size size, string text)
+        public TestButton(Form1 form1, Point position, Size size, string text)
         {
+            //Form1の参照を保管
+            _form1 = form1;
+
+
             // ボタンの位置を設定
             Location = position;
             // ボタンの大きさを設定
@@ -48,8 +54,7 @@ namespace Form_Test
         // 自分で作成することも可能
         private void ClickEvent(object sender, EventArgs e)
         {
-
-            SetEnable(!_enable);
+            _form1.GetTestButton(1, 2).SetEnable(true);
         }
     }
 }

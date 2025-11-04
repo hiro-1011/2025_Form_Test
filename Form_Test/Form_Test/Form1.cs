@@ -32,20 +32,21 @@ namespace Form_Test
         /// ボタンが縦に何個並ぶか
         /// </summary>
         const int BOARD_SIZE_Y = 3;
-        private TextButton[,] _buttonArray;
+        private TestButton[,] _buttonArray;
 
         public Form1()
         {
             InitializeComponent();
-            _buttonArray = new TextButton[BOARD_SIZE_Y, BOARD_SIZE_X];
+            _buttonArray = new TestButton[BOARD_SIZE_Y, BOARD_SIZE_X];
 
             for (int i = 0; i < BOARD_SIZE_X; i++)
             {
                 for (int j = 0; j < BOARD_SIZE_Y; j++)
                 {
                     // インスタンスの生成
-                    TextButton testButton =
-                        new TextButton(new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j)
+                    TestButton testButton =
+                        new TestButton(this,
+                        new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * j)
                                      , new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y), "");
                     _buttonArray[j, i] = testButton;
 
@@ -57,6 +58,11 @@ namespace Form_Test
             }
 
             _buttonArray[0,1].SetEnable(true);
+        }
+
+        public TestButton GetTestButton(int x, int y)
+        {
+            return _buttonArray[y, x];
         }
 
         // 自動生成
