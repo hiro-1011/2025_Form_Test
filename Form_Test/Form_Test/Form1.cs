@@ -49,7 +49,7 @@ namespace Form_Test
                                      , new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y), "");
                     _buttonArray[j, i] = testButton;
 
-                    testButton.SetEnable(false);
+                    testButton.SetEnable(true);
 
                     // コントロールにボタンを追加
                     Controls.Add(testButton);
